@@ -1,3 +1,21 @@
+
+
+
+헤더에 key값으로 Authentication 설정 후 value에는 Bearer {로그인시 반환되는 토큰값} 설정하시면 됩니다.
+
+로그인은 
+{
+   "accountId":"tester@gmail.com",
+   "password":"1234"
+}
+
+현재 테스트 계정이 db에 들어가있습니다.
+
+글작성시, 수정시
+{
+   "content":"test"
+}
+
 - 공개용 API
   * 로그인: /api/users/login
   * 게시판 조회: /api/board
