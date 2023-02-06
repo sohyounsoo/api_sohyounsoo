@@ -42,7 +42,7 @@ public class BoardRestController {
                 .map(BoardDto::new)
                 .collect(Collectors.toList());
 
-        System.out.println(boardService.findAll(user.getId()));
+        System.out.println(authentication);
 
         return success(boardList);
     }
@@ -128,6 +128,18 @@ public class BoardRestController {
                 .collect(Collectors.toList());
 
         return success(hisoryList);
+    }
+
+    @ExceptionHandler(NullPointerException.class)
+    public ApiResult<List<BoardDto>> nullex(Exception e) {
+//        System.err.println(e.getClass());
+
+        List<BoardDto> boardList = boardService.findAllNotUser()
+                .stream()
+                .map(BoardDto::new)
+                .collect(Collectors.toList());
+
+        return success(boardList);
     }
 
 }

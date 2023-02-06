@@ -22,5 +22,7 @@ public interface BoardRepository {
     int isBoardChk(Long boardId);
 
     List<Like> findByLike(long boardId);
+
+    List<Board> findAllNotUser();
 }
 

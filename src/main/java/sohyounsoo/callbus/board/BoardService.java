@@ -51,4 +51,8 @@ public class BoardService {
     public List<Like> findByLike(long boardId) {
         return boardRepository.findByLike(boardId);
     }
+
+    public List<Board> findAllNotUser() {
+        return boardRepository.findAllNotUser();
+    }
 }

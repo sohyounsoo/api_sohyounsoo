@@ -140,6 +140,34 @@ public class JdbcBoardRepository implements BoardRepository{
         );
     }
 
+    @Override
+    public List<Board> findAllNotUser() {
+        String sql = "SELECT";
+        sql += "  tb.*";
+        sql += ", ts.account_type";
+        sql += ", ts.account_id";
+        sql += ", (SELECT COUNT(*) FROM tb_like WHERE board_id = tb.id ) like_cnt";
+        sql += " FROM tb_board tb INNER JOIN tb_users ts ON tb.users_id = ts.id";
+        sql += " WHERE delete_yn = 'N'";
+        sql += " ORDER BY tb.id DESC";
+
+        return jdbcTemplate.query(
+                sql,
+                (rs, rowNum) ->
+                    new Board.Builder()
+                        .id(rs.getLong("id"))
+                        .accountId(rs.getString("account_id"))
+                        .content(rs.getString("content"))
+                        .create_at(DateTimeUtils.dateTimeOf(rs.getTimestamp("create_at")))
+                        .update_at(DateTimeUtils.dateTimeOf(rs.getTimestamp("update_at")))
+                        .delete_at(DateTimeUtils.dateTimeOf(rs.getTimestamp("delete_at")))
+                        .delete_yn(rs.getString("delete_yn"))
+                        .account_type(Account_type.valueOf(rs.getString("account_type")).getName())
+                        .like_cnt(rs.getLong("like_cnt"))
+                        .build()
+        );
+    }
+
 
     static RowMapper<Board> mapper = (rs, rowNum) ->
             new Board.Builder()
