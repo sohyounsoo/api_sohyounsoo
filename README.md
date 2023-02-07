@@ -1,6 +1,4 @@
 
-
-
 헤더에 key Authentication 설정 후 value Bearer {로그인시 반환되는 토큰값} 설정하시면 됩니다.
 
 로그인은 현재 테스트 계정
@@ -26,3 +24,5 @@
   * 게시판 좋아요: POST /api/board/{board_id}/like
   * 게시판 좋아요 기록확인: GET /api/board/{board_id}/hisotry
   
+db h2
+org.apache.commons.lang3.builder.ToStringBuilder 사용하여 json형태의 문자열로 객체 정보 반환에 사용했습니다.
