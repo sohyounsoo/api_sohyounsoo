@@ -5,11 +5,11 @@
 요청 헤더에 key `Authentication`, value는 `Bearer {로그인시 반환되는 토큰값}` 설정하시면 됩니다.
 
 로그인은 현재 테스트 계정
+
 `{
    "accountId":"tester@gmail.com",
    "password":"1234"
 }`
-
 `{
    "accountId":"so5663@naver.com",
    "password":"1234"
