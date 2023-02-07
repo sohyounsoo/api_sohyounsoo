@@ -10,6 +10,13 @@
    "password":"1234"
 }`
 
+`{
+   "accountId":"so5663@naver.com",
+   "password":"1234"
+}`
+
+둘중 하나 선택하시면 됩니다.
+
 글작성시 또는 수정시 -> Request Body `{ "content" : "글작성 내용" }`
 
 - 공개용 API
