@@ -53,7 +53,4 @@ org.apache.commons.lang3.builder.ToStringBuilder 사용하여 json형태의 문�
 
 spring-security 기반으로 JWT 인증을 구현 했습니다.
 
-## 기타 사항
-문제 중 'HTTP Header 중 Authentication 의 Value Prefix 에 따라 사용해 구분 할 수 있어야 합니다' 이 부분을 구현 하지 못했습니다.
-Authentication으로 구분할 방법을 생각하지 못했습니다.
 
